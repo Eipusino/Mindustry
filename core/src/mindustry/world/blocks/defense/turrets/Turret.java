@@ -159,6 +159,8 @@ public class Turret extends ReloadTurret{
         rotate = true;
         quickRotate = false;
         drawArrow = false;
+        rotateDrawEditor = false;
+        visualRotationOffset = -90f;
     }
 
     @Override
