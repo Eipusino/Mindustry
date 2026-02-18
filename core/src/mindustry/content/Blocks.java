@@ -94,16 +94,18 @@ public class Blocks{
     //sandbox
     powerSource, powerVoid, itemSource, itemVoid, liquidSource, liquidVoid, payloadSource, payloadVoid, illuminator, heatSource,
 
-    //defense
+    //walls
     copperWall, copperWallLarge, titaniumWall, titaniumWallLarge, plastaniumWall, plastaniumWallLarge, thoriumWall, thoriumWallLarge, door, doorLarge,
     phaseWall, phaseWallLarge, surgeWall, surgeWallLarge,
+
+    scrapWall, scrapWallLarge, scrapWallHuge, scrapWallGigantic, thruster, //ok, these names are getting ridiculous, but at least I don't have humongous walls yet
 
     //walls - erekir
     berylliumWall, berylliumWallLarge, tungstenWall, tungstenWallLarge, blastDoor, reinforcedSurgeWall, reinforcedSurgeWallLarge, carbideWall, carbideWallLarge,
     shieldedWall,
 
+    //defense
     mender, mendProjector, overdriveProjector, overdriveDome, forceProjector, shockMine,
-    scrapWall, scrapWallLarge, scrapWallHuge, scrapWallGigantic, thruster, //ok, these names are getting ridiculous, but at least I don't have humongous walls yet
 
     //defense - erekir
     radar,
@@ -1641,6 +1643,7 @@ public class Blocks{
 
             liquidCapacity = 80f;
             outputLiquid = new LiquidStack(Liquids.cyanogen, 12f / 60f);
+            craftTime = 80f / 4f;
 
             consumeLiquid(Liquids.arkycite, 160f / 60f);
             consumeItem(Items.graphite);
@@ -3744,7 +3747,8 @@ public class Blocks{
                     width = 7f;
                     height = 9f;
                     lifetime = 60f;
-                    ammoMultiplier = 4;
+                    ammoMultiplier = 5;
+                    armorMultiplier = 1.5f;
 
                     hitEffect = despawnEffect = Fx.hitBulletColor;
                     hitColor = backColor = trailColor = Pal.copperAmmoBack;
