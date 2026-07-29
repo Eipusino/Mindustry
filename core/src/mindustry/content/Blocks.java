@@ -2091,7 +2091,7 @@ public class Blocks{
             requirements(Category.distribution, with(Items.plastanium, 1, Items.thorium, 1, Items.metaglass, 1));
             health = 280;
             speed = 0.08f;
-            displayedSpeed = 11f;
+            displayedSpeed = 10f;
         }};
 
         junction = new Junction("junction"){{
@@ -2437,6 +2437,7 @@ public class Blocks{
             underBullets = true;
             health = 250;
             explosivenessScale = flammabilityScale = 20f/120f;
+            floating = true;
 
             ((Conduit)reinforcedConduit).rotBridgeReplacement = this;
         }};

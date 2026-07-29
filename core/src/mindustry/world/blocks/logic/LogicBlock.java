@@ -481,11 +481,7 @@ public class LogicBlock extends Block{
 
         @Override
         public void updateTile(){
-            //load up code from read()
-            if(loadBlock != null){
-                loadBlock.run();
-                loadBlock = null;
-            }
+            checkReadCode();
 
             executor.team = team;
 
@@ -619,7 +615,7 @@ public class LogicBlock extends Block{
             }
         }
 
-        private @Nullable Building optionalLink(String name){
+        public @Nullable Building optionalLink(String name){
             if(name == null || name.isEmpty()) return null;
             // Quick check the name can even be a link to avoid building/using the map needlessly
             char ch = name.charAt(name.length() - 1);
@@ -845,6 +841,18 @@ public class LogicBlock extends Block{
             }
 
             write.f(accumulator);
+        }
+
+        public void checkReadCode(){
+            if(loadBlock != null){
+                loadBlock.run();
+                loadBlock = null;
+            }
+        }
+
+        @Override
+        public void afterReadAll(){
+            checkReadCode();
         }
 
         @Override

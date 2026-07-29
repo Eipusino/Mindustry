@@ -22,7 +22,7 @@ import java.util.regex.*;
 import static mindustry.Vars.*;
 
 public class MapContentView implements AssetView{
-    private static final Pattern unsafeNamePattern = Pattern.compile("[\\[\\]{}`!@#$%^&8*();:,]");
+    private static final Pattern unsafeNamePattern = Pattern.compile("[\\[\\]{}`!@#$%^&*();:,]");
 
     static ObjectMap<ContentType, TextureRegionDrawable> contentIcons = ObjectMap.of(
     ContentType.item, Icon.box,
@@ -162,6 +162,7 @@ public class MapContentView implements AssetView{
                 ui.showConfirm("@asset.delete.confirm",  () -> {
                     contents.remove(content);
                     Vars.content.remove(content.content);
+                    state.data.reloadContent(false);
                     diag.rebuild();
                 });
             }).size(h);
